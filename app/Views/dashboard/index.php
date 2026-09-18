@@ -1,45 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Dashboard - Sistem Informasi Akademik</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
 
-    <h1>Sistem Informasi Akademik</h1>
+    <nav class="navbar navbar-dark bg-primary">
 
-    <h2>
-        Selamat datang, <?= $_SESSION['username']; ?>.
-    </h2>
+        <div class="container">
 
-    <h3>Menu:</h3>
-
-    <ul>
-        <li>
-            <a href="/si-akademik/public/dashboard">
-                Dashboard
+            <a
+                href="/si-akademik/public/dashboard"
+                class="navbar-brand">
+                Sistem Informasi Akademik
             </a>
-        </li>
 
-        <li>
-            <a href="/si-akademik/public/mahasiswa">
-                Mahasiswa
-            </a>
-        </li>
-
-        <li>
-            <a href="/si-akademik/public/dosen">
-                Dosen
-            </a>
-        </li>
-
-        <li>
-            <a href="/si-akademik/public/logout">
+            <a
+                href="/si-akademik/public/logout"
+                class="btn btn-light btn-sm">
                 Logout
             </a>
-        </li>
-    </ul>
+
+        </div>
+
+    </nav>
+
+
+    <div class="container mt-5">
+
+        <h2>Dashboard</h2>
+
+        <p class="text-muted">
+            Selamat datang,
+            <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>.
+        </p>
+
+
+        <div class="row mt-4">
+
+            <div class="col-md-6 mb-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Data Mahasiswa
+                        </h5>
+
+                        <p class="card-text">
+                            Melihat data mahasiswa.
+                        </p>
+
+                        <a
+                            href="/si-akademik/public/mahasiswa"
+                            class="btn btn-primary">
+                            Data Mahasiswa
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 mb-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            Data Dosen
+                        </h5>
+
+                        <p class="card-text">
+                            Melihat data dosen.
+                        </p>
+
+                        <a
+                            href="/si-akademik/public/dosen"
+                            class="btn btn-primary">
+                            Data Dosen
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 

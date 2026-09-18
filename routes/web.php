@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once __DIR__ . '/../config/database.php';
+
 require_once __DIR__ . '/../app/Controllers/MahasiswaController.php';
 require_once __DIR__ . '/../app/Controllers/DosenController.php';
 require_once __DIR__ . '/../app/Controllers/AuthController.php';
@@ -60,6 +62,46 @@ if ($url == 'login') {
 
     $controller = new DosenController();
     $controller->index();
+
+} else if ($url == 'dosen/create') {
+
+    $middleware = new AuthMiddleware();
+    $middleware->handle();
+
+    $controller = new DosenController();
+    $controller->create();
+
+} else if ($url == 'dosen/store' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $middleware = new AuthMiddleware();
+    $middleware->handle();
+
+    $controller = new DosenController();
+    $controller->store();
+
+} else if ($url == 'dosen/edit' && isset($_GET['id'])) {
+
+    $middleware = new AuthMiddleware();
+    $middleware->handle();
+
+    $controller = new DosenController();
+    $controller->edit($_GET['id']);
+
+} else if ($url == 'dosen/update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $middleware = new AuthMiddleware();
+    $middleware->handle();
+
+    $controller = new DosenController();
+    $controller->update($_POST['id']);
+
+} else if ($url == 'dosen/delete' && isset($_GET['id'])) {
+
+    $middleware = new AuthMiddleware();
+    $middleware->handle();
+
+    $controller = new DosenController();
+    $controller->delete($_GET['id']);
 
 } else {
 

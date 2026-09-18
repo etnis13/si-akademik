@@ -1,34 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Login - Sistem Informasi Akademik</title>
+
+    <!-- Bootstrap-->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 </head>
-<body>
 
-    <h1>Sistem Informasi Akademik</h1>
-    <h2>Login</h2>
+<body class="bg-light">
 
-    <?php if (isset($error)): ?>
-        <p style="color: red;">
-            <?= $error; ?>
-        </p>
-    <?php endif; ?>
+    <div class="container">
 
-    <form action="/si-akademik/public/login/process" method="POST">
+        <div class="row justify-content-center mt-5">
 
-        <label>Username</label><br>
-        <input type="text" name="username" required>
+            <div class="col-md-5">
 
-        <br><br>
+                <div class="card shadow-sm">
 
-        <label>Password</label><br>
-        <input type="password" name="password" required>
+                    <div class="card-body p-4">
 
-        <br><br>
+                        <h2 class="text-center mb-4">
+                            Sistem Informasi Akademik
+                        </h2>
 
-        <button type="submit">Login</button>
+                        <h4 class="text-center mb-4">
+                            Login
+                        </h4>
 
-    </form>
+                        <form action="/si-akademik/public/login/process" method="POST">
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    Username
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="username"
+                                    class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    name="password"
+                                    class="form-control"
+                                    required>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary w-100">
+                                Login
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
+
 </html>
